@@ -6,12 +6,16 @@ config({ path: resolve(__dirname, "./.env") })
 
 const app = express();
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
+
 const routes = [
     {
         route: '/api/numbers',
         name: "Output Random Numbers",
         handler: function (req, res, next) {
-            res.send("hi");
+            res.send([getRandomInt(100), getRandomInt(100), getRandomInt(100)]);
         }
     }
 ]

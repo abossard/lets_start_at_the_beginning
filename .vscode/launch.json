@@ -8,6 +8,7 @@
             "name": "Launch Random Number Server",
             "program": "${workspaceFolder}/random_number_service/server.ts",
             "request": "launch",
+            "cwd": "${workspaceFolder}/random_number_service",
             "runtimeArgs": [
                 "-r",
                 "ts-node/register"
