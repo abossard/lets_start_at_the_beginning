@@ -8,10 +8,10 @@ public class SetupTeardownIncluder {
     Usage:
     If I need the test page:
     
-    bool iNeedTestPage = true;
+    bool isSuite = true;
     PageData myPageData = <from somewhere>
 
-    String output = SetupTeardownIncluder.render(myPageData, iNeedTestPage);
+    String output = SetupTeardownIncluder.render(myPageData, isSuite);
     
     */
     public static String render(PageData pageData, boolean isSuite) throws Exception {
@@ -43,32 +43,4 @@ public class SetupTeardownIncluder {
                  return "\n!include " + arg + " ." + pagePathName + "\n";
         }
     }
-
-
-    // But this is a lie too!
-
-    /*
-
-    bool iNeedTestPage = true;
-    PageData myPageData = <from somewhere>
-
-    String output = (iNeedTestPage ? createSetupPageFrom(myPageData) : myPageData).ToHtml()
-
-    */
-
-    public static PageData createSetupPageFrom(PageData pageData) {
-        var testPage = pageData.getWikiPage();
-        var newPageContent = new StringBuffer();
-        if(isSuite) {
-            newPageContent.append(makeIncludeStatement(SuiteResponder.SUITE_SETUP_NAME, "-setup"))
-        }
-        newPageContent.append(makeIncludeStatement("SetUp", "-setup");
-        newPageContent.append(pageData.getContent());
-        newPageContent.append(makeIncludeStatement("TearDown", "-teardown");
-        if(isSuite) {
-            newPageContent.append(makeIncludeStatement(SuiteResponder.SUITE_TEARDOWN_NAME, "-teardown");
-        }
-        return new PageData(newPageContent.toString());
-    }
-    
 }
