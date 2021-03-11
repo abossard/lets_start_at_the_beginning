@@ -94,6 +94,8 @@ public class SetupTeardownIncluder {
     private void updatePageContent() throws Exception {
         pageData.setContent(newPageContent.toString());
     }
+
+    
     private void include(String pageName, String arg) throws Exception {
         WikiPage inheritedPage = findInheritedPage(pageName);
         if (inheritedPage != null) {
